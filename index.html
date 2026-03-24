@@ -288,10 +288,6 @@
       gap: 1.5rem;
       padding: 3rem 2rem;
     }
-    .hero__monogram {
-      width: 120px;
-      height: 120px;
-    }
     .hero__badge {
       background: var(--white);
       border-radius: var(--radius);
@@ -445,11 +441,15 @@
       transform: translateY(-4px);
       box-shadow: 0 12px 40px rgba(46, 31, 28, 0.08);
     }
-    .service-card__icon {
-      width: 48px;
-      height: 48px;
-      margin-bottom: 1.2rem;
-      color: var(--primary);
+    .service-card__num {
+      display: block;
+      font-family: var(--font-h);
+      font-size: 2.2rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 1rem;
     }
     .service-card__title {
       font-family: var(--font-h);
@@ -469,7 +469,7 @@
       border-color: var(--primary);
       color: var(--white);
     }
-    .service-card--featured .service-card__icon { color: var(--gold-l); }
+    .service-card--featured .service-card__num { color: var(--gold-l); }
     .service-card--featured .service-card__title { color: var(--white); }
     .service-card--featured .service-card__desc { color: rgba(255,255,255,0.75); }
     .service-card--featured:hover {
@@ -537,6 +537,7 @@
       box-shadow: 0 4px 20px rgba(46, 31, 28, 0.06);
     }
     .why-item__icon {
+      display: block;
       width: 36px;
       height: 36px;
       color: var(--primary);
@@ -952,7 +953,7 @@
         </p>
         <div class="hero__actions">
           <a href="#kontakt" class="btn btn--primary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17v-.08z"/></svg>
+            <i data-lucide="phone" style="width:16px;height:16px;"></i>
             Zavolat a objednat
           </a>
           <a href="#sluzby" class="btn btn--outline">Zobrazit služby</a>
@@ -962,27 +963,6 @@
       <div class="hero__visual">
         <div class="hero__blob"></div>
         <div class="hero__visual-inner">
-          <svg class="hero__monogram" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <!-- Decorative dashed circle -->
-            <circle cx="60" cy="60" r="55" stroke="#C9A882" stroke-width="1" stroke-dasharray="4 6"/>
-            <!-- Sole — wide at ball, tapers to rounded heel -->
-            <path d="M57 42 Q38 44 36 62 Q34 80 42 92 Q50 102 60 102 Q70 102 76 92 Q82 80 80 62 Q78 44 57 42 Z" stroke="#8B6F6A" stroke-width="2.2" stroke-linejoin="round"/>
-            <!-- Arch indent (right side subtle) -->
-            <path d="M78 68 Q82 72 80 78" stroke="#C9A882" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
-            <!-- Big toe -->
-            <circle cx="38" cy="33" r="7.5" stroke="#8B6F6A" stroke-width="2"/>
-            <!-- Index toe -->
-            <circle cx="50" cy="27" r="6.5" stroke="#8B6F6A" stroke-width="2"/>
-            <!-- Middle toe -->
-            <circle cx="62" cy="25" r="6.5" stroke="#8B6F6A" stroke-width="2"/>
-            <!-- Ring toe -->
-            <circle cx="73" cy="28" r="5.5" stroke="#8B6F6A" stroke-width="2"/>
-            <!-- Pinky toe -->
-            <circle cx="82" cy="35" r="4.5" stroke="#8B6F6A" stroke-width="2"/>
-            <!-- Gold fill accent on big toe -->
-            <circle cx="38" cy="33" r="3" fill="#C9A882" opacity="0.4"/>
-          </svg>
-
           <div class="hero__stats">
             <div class="hero__badge">
               <span class="hero__badge-num">Po–Pá</span>
@@ -1062,101 +1042,37 @@
       <div class="services__grid">
 
         <div class="service-card service-card--featured reveal reveal-delay-1">
-          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Footprint: sole + 5 toes -->
-            <path d="M24 42 Q14 42 14 30 Q14 20 19 17 Q22 15 26 17 Q31 20 31 30 Q31 42 24 42Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-            <!-- 5 toes, left to right -->
-            <circle cx="15" cy="13" r="2.2" stroke="currentColor" stroke-width="1.6"/>
-            <circle cx="20" cy="10" r="2.2" stroke="currentColor" stroke-width="1.6"/>
-            <circle cx="25" cy="9" r="2.2" stroke="currentColor" stroke-width="1.6"/>
-            <circle cx="30" cy="11" r="2.2" stroke="currentColor" stroke-width="1.6"/>
-            <circle cx="34" cy="14" r="2.2" stroke="currentColor" stroke-width="1.6"/>
-          </svg>
+          <span class="service-card__num">01</span>
           <h3 class="service-card__title">Přístrojová pedikúra</h3>
           <p class="service-card__desc">Kompletní ošetření nohou moderními přístroji — odstranění zatvrdlé kůže, ošetření nehtů a závěrečný relax.</p>
         </div>
 
         <div class="service-card reveal reveal-delay-2">
-          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Nail polish bottle -->
-            <!-- Cap -->
-            <rect x="18" y="9" width="12" height="7" rx="3" stroke="currentColor" stroke-width="1.8"/>
-            <!-- Neck -->
-            <rect x="21" y="16" width="6" height="4" rx="1" stroke="currentColor" stroke-width="1.5"/>
-            <!-- Body -->
-            <rect x="16" y="20" width="16" height="20" rx="4" stroke="currentColor" stroke-width="1.8"/>
-            <!-- Brush line inside -->
-            <line x1="24" y1="24" x2="24" y2="36" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/>
-          </svg>
+          <span class="service-card__num">02</span>
           <h3 class="service-card__title">Manikúra</h3>
           <p class="service-card__desc">Péče o ruce a nehty — tvarování, odstranění nehtových kůžiček, leštění a výživná masáž rukou.</p>
         </div>
 
         <div class="service-card reveal reveal-delay-3">
-          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Nail file (pilník) at angle + fingertip -->
-            <!-- Finger with rounded nail tip -->
-            <path d="M30 38 L30 28 Q30 22 24 22 Q18 22 18 28 L18 38 Q18 40 24 40 Q30 40 30 38Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-            <!-- Nail on fingertip -->
-            <path d="M19 28 Q24 24 29 28" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
-            <!-- Nail file stick going diagonally across -->
-            <rect x="8" y="19" width="32" height="6" rx="3" stroke="currentColor" stroke-width="1.8" transform="rotate(-30 24 22)"/>
-          </svg>
+          <span class="service-card__num">03</span>
           <h3 class="service-card__title">Nehtová modeláž</h3>
           <p class="service-card__desc">Profesionální prodloužení a modeláž nehtů — gel, akryl, dokonalé dokončení podle vašeho přání.</p>
         </div>
 
         <div class="service-card reveal reveal-delay-1">
-          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Leaf shape -->
-            <path d="M24 8 Q38 18 38 28 Q38 40 24 42 Q10 40 10 28 Q10 18 24 8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-            <!-- Leaf vein (střední žilka) -->
-            <path d="M24 42 L24 14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
-            <!-- Water drops -->
-            <path d="M31 16 Q33 13 33 15 Q33 17 31 17 Q29 17 29 15 Q29 13 31 16Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
-            <path d="M37 24 Q39 21 39 23 Q39 25 37 25 Q35 25 35 23 Q35 21 37 24Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
-          </svg>
+          <span class="service-card__num">04</span>
           <h3 class="service-card__title">Regenerační zábaly</h3>
           <p class="service-card__desc">Hloubková výživa a regenerace pokožky pomocí přírodních zábalů. Ideální po náročné sezóně.</p>
         </div>
 
         <div class="service-card reveal reveal-delay-2">
-          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Candle (svíčka / parafín) -->
-            <!-- Flame -->
-            <path d="M24 18 Q20 14 22 10 Q24 7 26 10 Q28 14 24 18Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-            <!-- Knot/wick -->
-            <line x1="24" y1="18" x2="24" y2="22" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
-            <!-- Candle body -->
-            <rect x="16" y="22" width="16" height="22" rx="2" stroke="currentColor" stroke-width="1.8"/>
-            <!-- Melted wax drip left -->
-            <path d="M16 30 Q12 31 12 35" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
-            <!-- Melted wax drip right -->
-            <path d="M32 27 Q36 28 36 32" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
-          </svg>
+          <span class="service-card__num">05</span>
           <h3 class="service-card__title">Peeling &amp; Parafinový zábal</h3>
           <p class="service-card__desc">Jemný peeling pro odstranění odumřelých buněk a parafinový zábal pro maximální hydrataci a měkkost pokožky.</p>
         </div>
 
         <div class="service-card reveal reveal-delay-3">
-          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Two open hands facing up, with massage wavy lines rising -->
-            <!-- Left hand / palm -->
-            <path d="M7 32 Q7 26 11 25 L19 25 L19 38 Q13 40 7 36 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-            <!-- Right hand / palm -->
-            <path d="M41 32 Q41 26 37 25 L29 25 L29 38 Q35 40 41 36 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
-            <!-- Fingers left (3 bumps at top of left palm) -->
-            <path d="M11 25 Q12 21 13 25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M14 25 Q15 20 16 25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M17 25 Q18 22 19 25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <!-- Fingers right -->
-            <path d="M29 25 Q30 22 31 25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M32 25 Q33 20 34 25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <path d="M35 25 Q36 21 37 25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-            <!-- Wavy relaxation lines rising between the hands -->
-            <path d="M21 20 Q23 17 25 20 Q27 23 29 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-            <path d="M22 13 Q24 10 26 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.5"/>
-          </svg>
+          <span class="service-card__num">06</span>
           <h3 class="service-card__title">Masáž nohou</h3>
           <p class="service-card__desc">Relaxační masáž s přírodní kosmetikou ATOK, Batavan a Callusan. Dokonalý závěr každého ošetření.</p>
         </div>
@@ -1165,18 +1081,7 @@
 
       <div class="reveal" style="text-align:center; margin-top:3rem;">
         <div style="display:inline-flex; align-items:center; gap:1rem; background:var(--section); padding:1rem 1.8rem; border-radius:var(--radius); border:1px solid var(--border);">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A882" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Gift box body -->
-  <rect x="3" y="10" width="18" height="12" rx="1"/>
-  <!-- Lid -->
-  <rect x="2" y="6" width="20" height="4" rx="1"/>
-  <!-- Vertical ribbon -->
-  <line x1="12" y1="6" x2="12" y2="22"/>
-  <!-- Bow left loop -->
-  <path d="M12 6 Q9 2 7 4 Q5 6 8 7 Q10 8 12 6"/>
-  <!-- Bow right loop -->
-  <path d="M12 6 Q15 2 17 4 Q19 6 16 7 Q14 8 12 6"/>
-</svg>
+          <i data-lucide="gift" style="width:20px;height:20px;color:#C9A882;flex-shrink:0;"></i>
           <span style="font-size:0.88rem; color:var(--text-m);">Nabízíme také <strong style="color:var(--text);">dárkové poukazy</strong> — ideální tip na originální dárek</span>
         </div>
       </div>
@@ -1203,38 +1108,25 @@
 
         <div class="why__features">
           <div class="why-item reveal reveal-delay-1">
-            <svg class="why-item__icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18 4 C18 4 28 10 28 20 C28 28 18 32 18 32 C18 32 8 28 8 20 C8 10 18 4 18 4Z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
-              <path d="M13 19 L16 22 L23 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <i data-lucide="flower-2" class="why-item__icon"></i>
             <h3 class="why-item__title">Přírodní kosmetika</h3>
             <p class="why-item__desc">Pracujeme výhradně s certifikovanými přírodními přípravky šetrnými k pokožce.</p>
           </div>
 
           <div class="why-item reveal reveal-delay-2">
-            <svg class="why-item__icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="18" cy="13" r="6" stroke="currentColor" stroke-width="1.6" fill="none"/>
-              <path d="M8 30 C8 24 12 21 18 21 C24 21 28 24 28 30" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
-            </svg>
+            <i data-lucide="heart-handshake" class="why-item__icon"></i>
             <h3 class="why-item__title">Osobní přístup</h3>
             <p class="why-item__desc">Každý klient je pro nás jedinečný. Ošetření přizpůsobíme přesně vašim potřebám.</p>
           </div>
 
           <div class="why-item reveal reveal-delay-3">
-            <svg class="why-item__icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="6" y="8" width="24" height="20" rx="3" stroke="currentColor" stroke-width="1.6" fill="none"/>
-              <path d="M12 18 L16 22 L24 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <i data-lucide="users" class="why-item__icon"></i>
             <h3 class="why-item__title">Pro každého</h3>
             <p class="why-item__desc">Rádi přivítáme ženy, muže i děti. Pedikúra není jen pro ženy — je pro každé zdravé nohy.</p>
           </div>
 
           <div class="why-item reveal reveal-delay-4">
-            <svg class="why-item__icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 12 L10 26 L18 30 L26 26 L26 12 L18 8 Z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
-              <path d="M18 8 L18 30" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
-              <path d="M10 12 L26 12" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
-            </svg>
+            <i data-lucide="shield-check" class="why-item__icon"></i>
             <h3 class="why-item__title">Diskrétní prostředí</h3>
             <p class="why-item__desc">Klidné, soukromé prostředí provozovny. Vaše pohodlí a soukromí jsou pro nás prioritou.</p>
           </div>
@@ -1277,14 +1169,14 @@
             <h3 class="hours__cta-title">Rezervujte si termín</h3>
             <p class="hours__cta-desc">Zavolejte nám nebo napište — domluvíme termín dle vaší potřeby, i mimo standardní provozní dobu.</p>
             <a href="tel:+420603827767" class="btn btn--light">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17v-.08z"/></svg>
+              <i data-lucide="phone" style="width:15px;height:15px;"></i>
               +420 603 827 767
             </a>
           </div>
 
           <div class="hours__phone-card">
             <div class="hours__phone-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <i data-lucide="mail"></i>
             </div>
             <div>
               <p class="hours__phone-label">E-mail</p>
@@ -1312,7 +1204,7 @@
 
           <div class="contact-item reveal reveal-delay-1">
             <div class="contact-item__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <i data-lucide="map-pin"></i>
             </div>
             <div>
               <p class="contact-item__label">Adresa</p>
@@ -1322,7 +1214,7 @@
 
           <div class="contact-item reveal reveal-delay-2">
             <div class="contact-item__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17v-.08z"/></svg>
+              <i data-lucide="phone"></i>
             </div>
             <div>
               <p class="contact-item__label">Telefon</p>
@@ -1332,7 +1224,7 @@
 
           <div class="contact-item reveal reveal-delay-3">
             <div class="contact-item__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <i data-lucide="mail"></i>
             </div>
             <div>
               <p class="contact-item__label">E-mail</p>
@@ -1342,7 +1234,7 @@
 
           <div class="contact-item reveal reveal-delay-4">
             <div class="contact-item__icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <i data-lucide="clock"></i>
             </div>
             <div>
               <p class="contact-item__label">Provozní doba</p>
@@ -1409,6 +1301,7 @@
   </footer>
 
 
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script>
     // ── Nav scroll effect
     const nav = document.getElementById('nav');
@@ -1463,6 +1356,8 @@
         e.target.reset();
       }, 4000);
     }
+
+    lucide.createIcons();
   </script>
 
 
