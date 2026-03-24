@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hana Pančochová — Přístrojová Pedikúra & Manikúra | Uherské Hradiště</title>
+  <meta name="description" content="Profesionální přístrojová pedikúra a manikúra v Uherském Hradišti. Hana Pančochová — osobní přístup, přírodní kosmetika, péče pro ženy, muže i děti." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #FDFAF6;
+      --primary:   #8B6F6A;
+      --primary-d: #6E5350;
+      --gold:      #C9A882;
+      --gold-l:    #E2CDB4;
+      --section:   #F2EBE4;
+      --text:      #2E1F1C;
+      --text-m:    #6B4F4A;
+      --white:     #FFFFFF;
+      --border:    #E4D8D0;
+
+      --font-h: 'Fraunces', Georgia, serif;
+      --font-b: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+      --max-w: 1140px;
+      --radius: 12px;
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-b);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-h);
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    img { display: block; max-width: 100%; }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(var(--max-w), 100% - 2rem);
+      margin-inline: auto;
+    }
+
+    /* ── Scroll reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── Section label ── */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-b);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(253, 250, 246, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+    .nav.scrolled {
+      border-color: var(--border);
+      box-shadow: 0 2px 24px rgba(46, 31, 28, 0.06);
+    }
+    .nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav__logo-icon { width: 32px; height: 32px; flex-shrink: 0; }
+    .nav__logo-text {
+      font-family: var(--font-h);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+    .nav__logo-text span {
+      display: block;
+      font-family: var(--font-b);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-top: 1px;
+    }
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav__links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-m);
+      transition: color var(--transition);
+      letter-spacing: 0.02em;
+    }
+    .nav__links a:hover { color: var(--primary); }
+    .nav__cta {
+      background: var(--primary);
+      color: var(--white) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 100px;
+      transition: background var(--transition) !important;
+    }
+    .nav__cta:hover { background: var(--primary-d) !important; }
+
+    .nav__toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav__toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding-top: 68px;
+      overflow: hidden;
+    }
+    .hero__content {
+      padding: 5rem 0;
+    }
+    .hero__eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+    .hero__eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .hero__title {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      max-width: 16ch;
+    }
+    .hero__title em {
+      font-style: italic;
+      color: var(--primary);
+    }
+    .hero__desc {
+      font-size: 1.05rem;
+      color: var(--text-m);
+      max-width: 42ch;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+    .hero__actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.85rem 1.8rem;
+      border-radius: 100px;
+      font-family: var(--font-b);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+    }
+    .btn--primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+    .btn--primary:hover {
+      background: var(--primary-d);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(139, 111, 106, 0.3);
+    }
+    .btn--outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+    .btn--outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .hero__visual {
+      height: 100%;
+      min-height: 100svh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero__blob {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--section) 0%, var(--gold-l) 100%);
+      clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    .hero__visual-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 3rem 2rem;
+    }
+    .hero__monogram {
+      width: 120px;
+      height: 120px;
+    }
+    .hero__badge {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      box-shadow: 0 4px 32px rgba(46, 31, 28, 0.08);
+      text-align: center;
+      min-width: 220px;
+    }
+    .hero__badge-num {
+      font-family: var(--font-h);
+      font-size: 2rem;
+      color: var(--primary);
+      line-height: 1;
+    }
+    .hero__badge-label {
+      font-size: 0.78rem;
+      color: var(--text-m);
+      font-weight: 500;
+    }
+    .hero__stats {
+      display: flex;
+      gap: 1rem;
+    }
+
+    /* ── ABOUT ── */
+    .about {
+      padding: 7rem 0;
+      background: var(--section);
+    }
+    .about__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about__decoration {
+      position: relative;
+      aspect-ratio: 4/5;
+      max-width: 440px;
+    }
+    .about__deco-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(160deg, var(--gold-l), var(--border));
+      border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%;
+      animation: morph 10s ease-in-out infinite;
+    }
+    @keyframes morph {
+      0%, 100% { border-radius: 40% 60% 60% 40% / 50% 40% 60% 50%; }
+      33%       { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+      66%       { border-radius: 30% 70% 70% 30% / 30% 60% 40% 70%; }
+    }
+    .about__deco-inner {
+      position: absolute;
+      inset: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about__deco-svg { width: 60%; opacity: 0.25; }
+    .about__quote-block {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+      box-shadow: 0 4px 24px rgba(46, 31, 28, 0.1);
+      max-width: 220px;
+    }
+    .about__quote-text {
+      font-family: var(--font-h);
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--primary);
+      line-height: 1.5;
+    }
+    .about__quote-author {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-m);
+      margin-top: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .about__title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+    .about__text {
+      color: var(--text-m);
+      margin-bottom: 1rem;
+      font-weight: 300;
+      font-size: 1.02rem;
+    }
+    .about__pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.8rem;
+    }
+    .pill {
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      border: 1.5px solid var(--border);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-m);
+      background: var(--white);
+    }
+
+    /* ── SERVICES ── */
+    .services {
+      padding: 7rem 0;
+    }
+    .services__header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .services__title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      margin-bottom: 0.8rem;
+    }
+    .services__sub {
+      color: var(--text-m);
+      font-weight: 300;
+      max-width: 50ch;
+      margin-inline: auto;
+    }
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--section);
+      border-radius: var(--radius);
+      padding: 2rem;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      cursor: default;
+    }
+    .service-card:hover {
+      background: var(--white);
+      border-color: var(--gold-l);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(46, 31, 28, 0.08);
+    }
+    .service-card__icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1.2rem;
+      color: var(--primary);
+    }
+    .service-card__title {
+      font-family: var(--font-h);
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 0.6rem;
+      color: var(--text);
+    }
+    .service-card__desc {
+      font-size: 0.88rem;
+      color: var(--text-m);
+      font-weight: 300;
+      line-height: 1.65;
+    }
+    .service-card--featured {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+    }
+    .service-card--featured .service-card__icon { color: var(--gold-l); }
+    .service-card--featured .service-card__title { color: var(--white); }
+    .service-card--featured .service-card__desc { color: rgba(255,255,255,0.75); }
+    .service-card--featured:hover {
+      background: var(--primary-d);
+      border-color: var(--primary-d);
+      box-shadow: 0 12px 40px rgba(139, 111, 106, 0.35);
+    }
+
+    /* ── WHY US ── */
+    .why {
+      padding: 7rem 0;
+      background: var(--section);
+    }
+    .why__grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .why__title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      margin-bottom: 1rem;
+    }
+    .why__sub {
+      color: var(--text-m);
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+    .why__cosmetics {
+      font-size: 0.78rem;
+      color: var(--text-m);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.4rem;
+    }
+    .why__brands {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .brand-tag {
+      padding: 0.3rem 0.8rem;
+      background: var(--gold-l);
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--primary-d);
+    }
+    .why__features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .why-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+    .why-item:hover {
+      border-color: var(--gold-l);
+      box-shadow: 0 4px 20px rgba(46, 31, 28, 0.06);
+    }
+    .why-item__icon {
+      width: 36px;
+      height: 36px;
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+    }
+    .why-item__title {
+      font-family: var(--font-h);
+      font-size: 1.05rem;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+    }
+    .why-item__desc {
+      font-size: 0.83rem;
+      color: var(--text-m);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ── HOURS ── */
+    .hours {
+      padding: 7rem 0;
+    }
+    .hours__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .hours__title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      margin-bottom: 0.8rem;
+    }
+    .hours__sub {
+      color: var(--text-m);
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+    .hours__table {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .hours__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.9rem 1.4rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      transition: background var(--transition);
+    }
+    .hours__row:last-child { border-bottom: none; }
+    .hours__row:hover { background: var(--section); }
+    .hours__row--highlight {
+      background: var(--primary);
+      color: var(--white);
+    }
+    .hours__row--highlight:hover { background: var(--primary-d); }
+    .hours__day {
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+    .hours__time {
+      font-family: var(--font-h);
+      font-size: 1rem;
+      font-weight: 400;
+    }
+    .hours__note {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--text-m);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hours__note::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .hours__visual {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .hours__cta-card {
+      background: linear-gradient(135deg, var(--primary), var(--primary-d));
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      color: var(--white);
+    }
+    .hours__cta-title {
+      font-family: var(--font-h);
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+    }
+    .hours__cta-desc {
+      font-size: 0.88rem;
+      opacity: 0.8;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+    .btn--light {
+      background: var(--white);
+      color: var(--primary);
+    }
+    .btn--light:hover {
+      background: var(--bg);
+      transform: translateY(-1px);
+    }
+    .hours__phone-card {
+      background: var(--section);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .hours__phone-icon {
+      width: 40px; height: 40px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+    .hours__phone-icon svg { width: 18px; height: 18px; color: var(--primary); }
+    .hours__phone-label { font-size: 0.72rem; color: var(--text-m); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
+    .hours__phone-num { font-family: var(--font-h); font-size: 1.15rem; color: var(--text); }
+
+    /* ── CONTACT ── */
+    .contact {
+      padding: 7rem 0;
+      background: var(--section);
+    }
+    .contact__header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .contact__title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 300;
+      margin-bottom: 0.8rem;
+    }
+    .contact__sub {
+      color: var(--text-m);
+      font-weight: 300;
+      max-width: 45ch;
+      margin-inline: auto;
+    }
+    .contact__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    .contact__info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .contact-item {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.3rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+    .contact-item:hover {
+      border-color: var(--gold-l);
+      box-shadow: 0 4px 16px rgba(46, 31, 28, 0.06);
+    }
+    .contact-item__icon {
+      width: 42px; height: 42px;
+      background: var(--section);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-item__icon svg { width: 20px; height: 20px; color: var(--primary); }
+    .contact-item__label { font-size: 0.72rem; color: var(--text-m); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px; }
+    .contact-item__value { font-size: 0.95rem; color: var(--text); font-weight: 500; }
+    .contact-item__value a:hover { color: var(--primary); }
+
+    /* Form */
+    .contact__form {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      border: 1px solid var(--border);
+    }
+    .form__title {
+      font-family: var(--font-h);
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      color: var(--text);
+    }
+    .form__group {
+      margin-bottom: 1rem;
+    }
+    .form__label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--text-m);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin-bottom: 0.4rem;
+    }
+    .form__input,
+    .form__textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      background: var(--bg);
+      font-family: var(--font-b);
+      font-size: 0.9rem;
+      color: var(--text);
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+      resize: none;
+    }
+    .form__input:focus,
+    .form__textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(139, 111, 106, 0.12);
+    }
+    .form__textarea { min-height: 110px; }
+    .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form__submit {
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+    .form__note {
+      font-size: 0.75rem;
+      color: var(--text-m);
+      text-align: center;
+      margin-top: 0.8rem;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: var(--text);
+      color: rgba(255,255,255,0.7);
+      padding: 3rem 0 2rem;
+    }
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer__logo-text {
+      font-family: var(--font-h);
+      font-size: 1rem;
+      color: var(--white);
+    }
+    .footer__logo-text span {
+      display: block;
+      font-family: var(--font-b);
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .footer__links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .footer__links a {
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.6);
+      transition: color var(--transition);
+    }
+    .footer__links a:hover { color: var(--white); }
+    .footer__bottom {
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ── MOBILE NAV ── */
+    .nav__mobile {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 1rem;
+      gap: 0.2rem;
+      z-index: 99;
+      box-shadow: 0 8px 32px rgba(46,31,28,0.1);
+    }
+    .nav__mobile.open { display: flex; }
+    .nav__mobile a {
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text);
+      border-radius: 8px;
+      transition: background var(--transition);
+    }
+    .nav__mobile a:hover { background: var(--section); }
+    .nav__mobile .btn--primary {
+      text-align: center;
+      margin-top: 0.5rem;
+      justify-content: center;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 6rem 0 3rem; }
+      .hero__visual { min-height: 320px; margin: 0 -1rem -1rem; clip-path: none; }
+      .hero__blob { clip-path: none; border-radius: var(--radius) var(--radius) 0 0; }
+      .about__grid { grid-template-columns: 1fr; gap: 3rem; }
+      .about__decoration { max-width: 100%; aspect-ratio: 3/2; order: -1; }
+      .about__quote-block { bottom: -1rem; right: 0; }
+      .services__grid { grid-template-columns: 1fr 1fr; }
+      .why__grid { grid-template-columns: 1fr; gap: 3rem; }
+      .hours__inner { grid-template-columns: 1fr; gap: 3rem; }
+      .contact__grid { grid-template-columns: 1fr; }
+      .nav__links { display: none; }
+      .nav__toggle { display: flex; }
+      .footer__inner { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 580px) {
+      .services__grid { grid-template-columns: 1fr; }
+      .why__features { grid-template-columns: 1fr; }
+      .form__row { grid-template-columns: 1fr; }
+      .hero__stats { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAV ══ -->
+  <nav class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#" class="nav__logo">
+        <!-- Original brand monogram: stylized H+P with a leaf -->
+        <svg class="nav__logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="20" cy="20" r="19" stroke="#C9A882" stroke-width="1.2"/>
+          <path d="M12 28V12M12 20h8M20 12v16" stroke="#8B6F6A" stroke-width="1.6" stroke-linecap="round"/>
+          <path d="M24 20c0-4 6-4 6 0s-6 8-6 8" stroke="#8B6F6A" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="nav__logo-text">
+          Hana Pančochová
+          <span>Pedikúra &amp; Manikúra</span>
+        </div>
+      </a>
+
+      <ul class="nav__links">
+        <li><a href="#o-nas">O nás</a></li>
+        <li><a href="#sluzby">Služby</a></li>
+        <li><a href="#provozni-doba">Provozní doba</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li><a href="#kontakt" class="nav__cta btn">Objednat se</a></li>
+      </ul>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Otevřít menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="nav__mobile" id="navMobile">
+      <a href="#o-nas">O nás</a>
+      <a href="#sluzby">Služby</a>
+      <a href="#provozni-doba">Provozní doba</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#kontakt" class="btn btn--primary">Objednat se</a>
+    </div>
+  </nav>
+
+
+  <!-- ══ HERO ══ -->
+  <section class="hero">
+    <div class="container" style="display:contents;">
+      <div class="hero__content container reveal">
+        <p class="hero__eyebrow">Uherské Hradiště</p>
+        <h1 class="hero__title">
+          Péče o vaše nohy &amp; ruce <em>s osobním přístupem</em>
+        </h1>
+        <p class="hero__desc">
+          Profesionální přístrojová pedikúra a manikúra pro ženy, muže i děti.
+          Přírodní kosmetika, klidná atmosféra, spokojenost zaručena.
+        </p>
+        <div class="hero__actions">
+          <a href="#kontakt" class="btn btn--primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17v-.08z"/></svg>
+            Zavolat a objednat
+          </a>
+          <a href="#sluzby" class="btn btn--outline">Zobrazit služby</a>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="hero__blob"></div>
+        <div class="hero__visual-inner">
+          <svg class="hero__monogram" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Decorative dashed circle -->
+            <circle cx="60" cy="60" r="55" stroke="#C9A882" stroke-width="1" stroke-dasharray="4 6"/>
+            <!-- Sole — wide at ball, tapers to rounded heel -->
+            <path d="M57 42 Q38 44 36 62 Q34 80 42 92 Q50 102 60 102 Q70 102 76 92 Q82 80 80 62 Q78 44 57 42 Z" stroke="#8B6F6A" stroke-width="2.2" stroke-linejoin="round"/>
+            <!-- Arch indent (right side subtle) -->
+            <path d="M78 68 Q82 72 80 78" stroke="#C9A882" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+            <!-- Big toe -->
+            <circle cx="38" cy="33" r="7.5" stroke="#8B6F6A" stroke-width="2"/>
+            <!-- Index toe -->
+            <circle cx="50" cy="27" r="6.5" stroke="#8B6F6A" stroke-width="2"/>
+            <!-- Middle toe -->
+            <circle cx="62" cy="25" r="6.5" stroke="#8B6F6A" stroke-width="2"/>
+            <!-- Ring toe -->
+            <circle cx="73" cy="28" r="5.5" stroke="#8B6F6A" stroke-width="2"/>
+            <!-- Pinky toe -->
+            <circle cx="82" cy="35" r="4.5" stroke="#8B6F6A" stroke-width="2"/>
+            <!-- Gold fill accent on big toe -->
+            <circle cx="38" cy="33" r="3" fill="#C9A882" opacity="0.4"/>
+          </svg>
+
+          <div class="hero__stats">
+            <div class="hero__badge">
+              <span class="hero__badge-num">Po–Pá</span>
+              <span class="hero__badge-label">7:30 – 18:00</span>
+            </div>
+            <div class="hero__badge">
+              <span class="hero__badge-num" style="font-size:1.3rem;">Uh. Hradiště</span>
+              <span class="hero__badge-label">Dvořákova 645</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ ABOUT ══ -->
+  <section class="about" id="o-nas">
+    <div class="container">
+      <div class="about__grid">
+
+        <div class="about__decoration reveal">
+          <div class="about__deco-bg"></div>
+          <div class="about__deco-inner">
+            <svg class="about__deco-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Stylized flower / 6-petal bloom -->
+              <circle cx="100" cy="100" r="12" fill="#C9A882" opacity="0.6"/>
+              <ellipse cx="100" cy="62" rx="10" ry="28" fill="none" stroke="#8B6F6A" stroke-width="2"/>
+              <ellipse cx="100" cy="138" rx="10" ry="28" fill="none" stroke="#8B6F6A" stroke-width="2"/>
+              <ellipse cx="100" cy="100" rx="28" ry="10" fill="none" stroke="#8B6F6A" stroke-width="2"/>
+              <ellipse cx="100" cy="100" rx="28" ry="10" fill="none" stroke="#8B6F6A" stroke-width="2" transform="rotate(60 100 100)"/>
+              <ellipse cx="100" cy="100" rx="28" ry="10" fill="none" stroke="#8B6F6A" stroke-width="2" transform="rotate(120 100 100)"/>
+              <circle cx="100" cy="100" r="40" stroke="#C9A882" stroke-width="1" opacity="0.4"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="reveal reveal-delay-1">
+          <p class="section-label">O nás</p>
+          <h2 class="about__title">Profesionální péče s&nbsp;lidským přístupem</h2>
+          <p class="about__text">
+            Jmenuji se Hana Pančochová a pedikúře se věnuji s láskou a pečlivostí již mnoho let.
+            Mým cílem je, aby každý klient odcházel spokojený, s pocitem opravdové úlevy a péče.
+          </p>
+          <p class="about__text">
+            Kladu důraz na <strong>diskrétnost</strong> a <strong>osobní přístup</strong> ke každému zákazníkovi.
+            Pracuji výhradně s přírodní kosmetikou a certifikovanými přístroji — protože vaše zdraví
+            a komfort jsou na prvním místě.
+          </p>
+          <p class="about__text">
+            Moje služby jsou určeny pro <strong>ženy, muže i děti</strong>. Ať přijdete poprvé nebo jako stálý klient,
+            vždy vás přivítám s úsměvem a plnou pozorností.
+          </p>
+          <div class="about__pills">
+            <span class="pill">Pro ženy</span>
+            <span class="pill">Pro muže</span>
+            <span class="pill">Pro děti</span>
+            <span class="pill">Přírodní kosmetika</span>
+            <span class="pill">Certifikované přístroje</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ SERVICES ══ -->
+  <section class="services" id="sluzby">
+    <div class="container">
+      <div class="services__header reveal">
+        <p class="section-label" style="justify-content:center;">Nabídka</p>
+        <h2 class="services__title">Co pro vás uděláme</h2>
+        <p class="services__sub">Kompletní péče o nohy a ruce pod jednou střechou — od klasické pedikúry po regenerační ošetření.</p>
+      </div>
+
+      <div class="services__grid">
+
+        <div class="service-card service-card--featured reveal reveal-delay-1">
+          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Footprint: sole + 5 toes -->
+            <path d="M24 42 Q14 42 14 30 Q14 20 19 17 Q22 15 26 17 Q31 20 31 30 Q31 42 24 42Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            <!-- 5 toes, left to right -->
+            <circle cx="15" cy="13" r="2.2" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="20" cy="10" r="2.2" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="25" cy="9" r="2.2" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="30" cy="11" r="2.2" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="34" cy="14" r="2.2" stroke="currentColor" stroke-width="1.6"/>
+          </svg>
+          <h3 class="service-card__title">Přístrojová pedikúra</h3>
+          <p class="service-card__desc">Kompletní ošetření nohou moderními přístroji — odstranění zatvrdlé kůže, ošetření nehtů a závěrečný relax.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Nail polish bottle -->
+            <!-- Cap -->
+            <rect x="18" y="9" width="12" height="7" rx="3" stroke="currentColor" stroke-width="1.8"/>
+            <!-- Neck -->
+            <rect x="21" y="16" width="6" height="4" rx="1" stroke="currentColor" stroke-width="1.5"/>
+            <!-- Body -->
+            <rect x="16" y="20" width="16" height="20" rx="4" stroke="currentColor" stroke-width="1.8"/>
+            <!-- Brush line inside -->
+            <line x1="24" y1="24" x2="24" y2="36" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.5"/>
+          </svg>
+          <h3 class="service-card__title">Manikúra</h3>
+          <p class="service-card__desc">Péče o ruce a nehty — tvarování, odstranění nehtových kůžiček, leštění a výživná masáž rukou.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-3">
+          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Nail file (pilník) at angle + fingertip -->
+            <!-- Finger with rounded nail tip -->
+            <path d="M30 38 L30 28 Q30 22 24 22 Q18 22 18 28 L18 38 Q18 40 24 40 Q30 40 30 38Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            <!-- Nail on fingertip -->
+            <path d="M19 28 Q24 24 29 28" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+            <!-- Nail file stick going diagonally across -->
+            <rect x="8" y="19" width="32" height="6" rx="3" stroke="currentColor" stroke-width="1.8" transform="rotate(-30 24 22)"/>
+          </svg>
+          <h3 class="service-card__title">Nehtová modeláž</h3>
+          <p class="service-card__desc">Profesionální prodloužení a modeláž nehtů — gel, akryl, dokonalé dokončení podle vašeho přání.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Leaf shape -->
+            <path d="M24 8 Q38 18 38 28 Q38 40 24 42 Q10 40 10 28 Q10 18 24 8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            <!-- Leaf vein (střední žilka) -->
+            <path d="M24 42 L24 14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+            <!-- Water drops -->
+            <path d="M31 16 Q33 13 33 15 Q33 17 31 17 Q29 17 29 15 Q29 13 31 16Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M37 24 Q39 21 39 23 Q39 25 37 25 Q35 25 35 23 Q35 21 37 24Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          </svg>
+          <h3 class="service-card__title">Regenerační zábaly</h3>
+          <p class="service-card__desc">Hloubková výživa a regenerace pokožky pomocí přírodních zábalů. Ideální po náročné sezóně.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Candle (svíčka / parafín) -->
+            <!-- Flame -->
+            <path d="M24 18 Q20 14 22 10 Q24 7 26 10 Q28 14 24 18Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <!-- Knot/wick -->
+            <line x1="24" y1="18" x2="24" y2="22" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <!-- Candle body -->
+            <rect x="16" y="22" width="16" height="22" rx="2" stroke="currentColor" stroke-width="1.8"/>
+            <!-- Melted wax drip left -->
+            <path d="M16 30 Q12 31 12 35" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+            <!-- Melted wax drip right -->
+            <path d="M32 27 Q36 28 36 32" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+          </svg>
+          <h3 class="service-card__title">Peeling &amp; Parafinový zábal</h3>
+          <p class="service-card__desc">Jemný peeling pro odstranění odumřelých buněk a parafinový zábal pro maximální hydrataci a měkkost pokožky.</p>
+        </div>
+
+        <div class="service-card reveal reveal-delay-3">
+          <svg class="service-card__icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Two open hands facing up, with massage wavy lines rising -->
+            <!-- Left hand / palm -->
+            <path d="M7 32 Q7 26 11 25 L19 25 L19 38 Q13 40 7 36 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            <!-- Right hand / palm -->
+            <path d="M41 32 Q41 26 37 25 L29 25 L29 38 Q35 40 41 36 Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+            <!-- Fingers left (3 bumps at top of left palm) -->
+            <path d="M11 25 Q12 21 13 25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M14 25 Q15 20 16 25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M17 25 Q18 22 19 25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Fingers right -->
+            <path d="M29 25 Q30 22 31 25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M32 25 Q33 20 34 25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M35 25 Q36 21 37 25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Wavy relaxation lines rising between the hands -->
+            <path d="M21 20 Q23 17 25 20 Q27 23 29 20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+            <path d="M22 13 Q24 10 26 13" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.5"/>
+          </svg>
+          <h3 class="service-card__title">Masáž nohou</h3>
+          <p class="service-card__desc">Relaxační masáž s přírodní kosmetikou ATOK, Batavan a Callusan. Dokonalý závěr každého ošetření.</p>
+        </div>
+
+      </div>
+
+      <div class="reveal" style="text-align:center; margin-top:3rem;">
+        <div style="display:inline-flex; align-items:center; gap:1rem; background:var(--section); padding:1rem 1.8rem; border-radius:var(--radius); border:1px solid var(--border);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A882" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Gift box body -->
+  <rect x="3" y="10" width="18" height="12" rx="1"/>
+  <!-- Lid -->
+  <rect x="2" y="6" width="20" height="4" rx="1"/>
+  <!-- Vertical ribbon -->
+  <line x1="12" y1="6" x2="12" y2="22"/>
+  <!-- Bow left loop -->
+  <path d="M12 6 Q9 2 7 4 Q5 6 8 7 Q10 8 12 6"/>
+  <!-- Bow right loop -->
+  <path d="M12 6 Q15 2 17 4 Q19 6 16 7 Q14 8 12 6"/>
+</svg>
+          <span style="font-size:0.88rem; color:var(--text-m);">Nabízíme také <strong style="color:var(--text);">dárkové poukazy</strong> — ideální tip na originální dárek</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ WHY US ══ -->
+  <section class="why" id="proc-my">
+    <div class="container">
+      <div class="why__grid">
+
+        <div class="reveal">
+          <p class="section-label">Proč my</p>
+          <h2 class="why__title">Na kvalitě záleží</h2>
+          <p class="why__sub">Každý detail ošetření je pro nás důležitý. Proto pracujeme s tím nejlepším vybavením a přírodními přípravky.</p>
+          <p class="why__cosmetics">Přírodní kosmetika</p>
+          <div class="why__brands">
+            <span class="brand-tag">ATOK</span>
+            <span class="brand-tag">Batavan</span>
+            <span class="brand-tag">Callusan</span>
+          </div>
+        </div>
+
+        <div class="why__features">
+          <div class="why-item reveal reveal-delay-1">
+            <svg class="why-item__icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 4 C18 4 28 10 28 20 C28 28 18 32 18 32 C18 32 8 28 8 20 C8 10 18 4 18 4Z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+              <path d="M13 19 L16 22 L23 15" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3 class="why-item__title">Přírodní kosmetika</h3>
+            <p class="why-item__desc">Pracujeme výhradně s certifikovanými přírodními přípravky šetrnými k pokožce.</p>
+          </div>
+
+          <div class="why-item reveal reveal-delay-2">
+            <svg class="why-item__icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="18" cy="13" r="6" stroke="currentColor" stroke-width="1.6" fill="none"/>
+              <path d="M8 30 C8 24 12 21 18 21 C24 21 28 24 28 30" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+            </svg>
+            <h3 class="why-item__title">Osobní přístup</h3>
+            <p class="why-item__desc">Každý klient je pro nás jedinečný. Ošetření přizpůsobíme přesně vašim potřebám.</p>
+          </div>
+
+          <div class="why-item reveal reveal-delay-3">
+            <svg class="why-item__icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="6" y="8" width="24" height="20" rx="3" stroke="currentColor" stroke-width="1.6" fill="none"/>
+              <path d="M12 18 L16 22 L24 14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h3 class="why-item__title">Pro každého</h3>
+            <p class="why-item__desc">Rádi přivítáme ženy, muže i děti. Pedikúra není jen pro ženy — je pro každé zdravé nohy.</p>
+          </div>
+
+          <div class="why-item reveal reveal-delay-4">
+            <svg class="why-item__icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 12 L10 26 L18 30 L26 26 L26 12 L18 8 Z" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+              <path d="M18 8 L18 30" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
+              <path d="M10 12 L26 12" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
+            </svg>
+            <h3 class="why-item__title">Diskrétní prostředí</h3>
+            <p class="why-item__desc">Klidné, soukromé prostředí provozovny. Vaše pohodlí a soukromí jsou pro nás prioritou.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ HOURS ══ -->
+  <section class="hours" id="provozni-doba">
+    <div class="container">
+      <div class="hours__inner">
+
+        <div class="reveal">
+          <p class="section-label">Kdy nás najdete</p>
+          <h2 class="hours__title">Provozní doba</h2>
+          <p class="hours__sub">Pracujeme na základě objednávek — zavolejte nebo napište a domluvíme se na termínu, který vám vyhovuje.</p>
+
+          <div class="hours__table">
+            <div class="hours__row hours__row--highlight">
+              <span class="hours__day">Pondělí – Pátek</span>
+              <span class="hours__time">7:30 – 18:00</span>
+            </div>
+            <div class="hours__row">
+              <span class="hours__day">Sobota</span>
+              <span class="hours__time" style="color:var(--text-m); font-size:0.88rem;">dle dohody</span>
+            </div>
+            <div class="hours__row">
+              <span class="hours__day">Neděle</span>
+              <span class="hours__time" style="color:var(--text-m); font-size:0.88rem;">zavřeno</span>
+            </div>
+          </div>
+          <p class="hours__note">Přijímáme pouze zákazníky na objednávku.</p>
+        </div>
+
+        <div class="hours__visual reveal reveal-delay-1">
+          <div class="hours__cta-card">
+            <h3 class="hours__cta-title">Rezervujte si termín</h3>
+            <p class="hours__cta-desc">Zavolejte nám nebo napište — domluvíme termín dle vaší potřeby, i mimo standardní provozní dobu.</p>
+            <a href="tel:+420603827767" class="btn btn--light">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17v-.08z"/></svg>
+              +420 603 827 767
+            </a>
+          </div>
+
+          <div class="hours__phone-card">
+            <div class="hours__phone-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <p class="hours__phone-label">E-mail</p>
+              <p class="hours__phone-num"><a href="mailto:hapan11@centrum.cz">hapan11@centrum.cz</a></p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ CONTACT ══ -->
+  <section class="contact" id="kontakt">
+    <div class="container">
+      <div class="contact__header reveal">
+        <p class="section-label" style="justify-content:center;">Kontakt</p>
+        <h2 class="contact__title">Najdete nás v Uherském Hradišti</h2>
+        <p class="contact__sub">Máte dotaz nebo si chcete objednat termín? Ozvěte se — rádi vám odpovíme.</p>
+      </div>
+
+      <div class="contact__grid">
+        <div class="contact__info">
+
+          <div class="contact-item reveal reveal-delay-1">
+            <div class="contact-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <p class="contact-item__label">Adresa</p>
+              <p class="contact-item__value">Dvořákova 645<br>Uherské Hradiště</p>
+            </div>
+          </div>
+
+          <div class="contact-item reveal reveal-delay-2">
+            <div class="contact-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.1a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17v-.08z"/></svg>
+            </div>
+            <div>
+              <p class="contact-item__label">Telefon</p>
+              <p class="contact-item__value"><a href="tel:+420603827767">+420 603 827 767</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item reveal reveal-delay-3">
+            <div class="contact-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <p class="contact-item__label">E-mail</p>
+              <p class="contact-item__value"><a href="mailto:hapan11@centrum.cz">hapan11@centrum.cz</a></p>
+            </div>
+          </div>
+
+          <div class="contact-item reveal reveal-delay-4">
+            <div class="contact-item__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <p class="contact-item__label">Provozní doba</p>
+              <p class="contact-item__value">Po–Pá: 7:30 – 18:00<br><span style="font-size:0.83rem; color:var(--text-m);">Jen na objednávku</span></p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="contact__form reveal reveal-delay-2">
+          <h3 class="form__title">Napište nám</h3>
+          <form onsubmit="handleSubmit(event)">
+            <div class="form__row">
+              <div class="form__group">
+                <label class="form__label" for="name">Jméno</label>
+                <input class="form__input" type="text" id="name" name="name" placeholder="Jana Nováková" required />
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="phone">Telefon</label>
+                <input class="form__input" type="tel" id="phone" name="phone" placeholder="+420 xxx xxx xxx" />
+              </div>
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="email">E-mail</label>
+              <input class="form__input" type="email" id="email" name="email" placeholder="vas@email.cz" required />
+            </div>
+            <div class="form__group">
+              <label class="form__label" for="message">Zpráva</label>
+              <textarea class="form__textarea" id="message" name="message" placeholder="Ráda bych se objednala na přístrojovou pedikúru…"></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary form__submit">Odeslat zprávu</button>
+            <p class="form__note">Zpravidla odpovídáme do 24 hodin.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__logo">
+          <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="20" cy="20" r="19" stroke="#C9A882" stroke-width="1"/>
+            <path d="M12 28V12M12 20h8M20 12v16" stroke="rgba(255,255,255,0.7)" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M24 20c0-4 6-4 6 0s-6 8-6 8" stroke="rgba(255,255,255,0.7)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="footer__logo-text">
+            Hana Pančochová
+            <span>Pedikúra &amp; Manikúra · Uherské Hradiště</span>
+          </div>
+        </div>
+        <ul class="footer__links">
+          <li><a href="#o-nas">O nás</a></li>
+          <li><a href="#sluzby">Služby</a></li>
+          <li><a href="#provozni-doba">Provozní doba</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </div>
+      <p class="footer__bottom">&copy; 2025 Hana Pančochová — Přístrojová pedikúra a manikúra, Uherské Hradiště</p>
+    </div>
+  </footer>
+
+
+  <script>
+    // ── Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // ── Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('navMobile');
+    toggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+
+    // ── Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // ── Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // ── Contact form (placeholder handler)
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      btn.textContent = 'Zpráva odeslána ✓';
+      btn.style.background = '#5a8a4a';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = 'Odeslat zprávu';
+        btn.style.background = '';
+        btn.disabled = false;
+        e.target.reset();
+      }, 4000);
+    }
+  </script>
+
+
+  <!-- WATERMARK — odstranit před nasazením: smazat tento jeden element -->
+  <div id="demo-watermark" style="position:fixed;inset:0;z-index:9999;pointer-events:none;overflow:hidden;">
+    <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;">
+      <defs>
+        <pattern id="wm" x="0" y="0" width="320" height="180" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)">
+          <text x="10" y="80" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="600" fill="#8B6F6A" opacity="0.09" letter-spacing="1">Demo verze — Tomáš Smolík</text>
+          <text x="10" y="170" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="600" fill="#8B6F6A" opacity="0.09" letter-spacing="1">Demo verze — Tomáš Smolík</text>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#wm)"/>
+    </svg>
+  </div>
+
+</body>
+</html>
