@@ -10,6 +10,7 @@
 - Prošli jsme původní web (webnode) — získali jsme všechny reálné informace
 - Schváleny fonty a barevná paleta
 - Vytvořen kompletní jednostránkový web (`index.html`)
+- Projekt pushnut na GitHub: https://github.com/supercigan/pristrojova-pedikura
 
 ### Schválený design
 - **Font nadpisy:** Fraunces (moderní optický serif)
@@ -31,14 +32,29 @@
 - **Kosmetika:** ATOK, Batavan, Callusan
 
 ### Struktura webu (index.html)
-1. **Nav** — fixed, logo HP monogram, mobile menu
-2. **Hero** — fullheight, tagline, CTA (tel + služby), vizuální panel
-3. **O nás** — text Hany, filozofie, animovaný blob tvar, quote karta
-4. **Služby** — 6 karet (3×2 grid), SVG line ikony, featured card
-5. **Proč my** — 2-col layout, 4 why-items, brand tagy kosmetiky
-6. **Provozní doba** — tabulka hodin, CTA karta, email karta
+1. **Nav** — fixed, logo HP monogram, mobile menu, "Objednat se" → #kontakt
+2. **Hero** — fullheight, tagline, CTA → #kontakt, velký otisk chodidla (sole + 5 prstů)
+3. **O nás** — text Hany, filozofie, animovaný blob tvar (6-lístkový květ)
+4. **Služby** — 6 karet (3×2 grid), intuitivní SVG ikony:
+   - Přístrojová pedikúra → otisk chodidla
+   - Manikúra → lahvička s lakem
+   - Nehtová modeláž → pilník u prstu
+   - Regenerační zábaly → list s kapkami
+   - Peeling & Parafinový zábal → svíčka s plamenem
+   - Masáž nohou → dvě dlaně s vlnovkami
+5. **Proč my** — 4 pilíře, brand tagy kosmetiky
+6. **Provozní doba** — tabulka, CTA karta s tel. číslem
 7. **Kontakt** — 4 info karty + kontaktní formulář
 8. **Footer** — logo, nav linky, copyright
+
+### Úpravy provedené po vytvoření
+- Smazán quote blok v sekci O nás
+- Tlačítka "Zavolat a objednat" a "Objednat se" → scrollují na #kontakt
+- Nadpis "Na kvalitě záleží" (zjednodušen)
+- Ikona u dárkových poukazů → dárková krabička s mašlí
+- Ikona v hero → velký otisk chodidla (120×120 SVG)
+- Ikona v about blob → 6-lístkový květ (nahrazen nevhodný tvar)
+- Watermark: "Demo verze — Tomáš Smolík", opacity 0.09, fixed overlay, id="demo-watermark"
 
 ### Technické detaily
 - Single HTML file (CSS + JS embedded)
@@ -47,11 +63,16 @@
 - Vanilla JS (bez závislostí)
 - Formulář: placeholder handler (bez backendu)
 
+### GitHub
+- Repo: https://github.com/supercigan/pristrojova-pedikura
+- Username: supercigan
+- Credentials: Windows Credential Manager (automaticky dostupné)
+
 ---
 
 ## Co se řeší
 
-- Uživatel ještě neviděl web v prohlížeči — čeká se na feedback
+- Web zatím bez reálných fotek (placeholdery / prázdná místa)
 - Formulář nemá backend — zatím jen UI handler
 
 ---
@@ -61,12 +82,14 @@
 - Původní brand materiály (sage green / spa palette) byly z jiného projektu — NEPOUŽÍVAT
 - Zvolena originální paleta "Teplá hlína" (dusty mauve + caramel)
 - Web je čistý HTML bez frameworků — snadná správa
+- Všechna CTA tlačítka vedou na #kontakt, ne na tel: link (lepší UX na desktopu)
 
 ---
 
 ## Příští kroky
 
-- Zobrazit web v prohlížeči a screenshotovat
-- Čekat na feedback od uživatele
-- Případně: ceník sekce, galerie fotek, Google Maps embed
-- Případně: backend pro formulář (mailto: nebo Formspree)
+- Přidat reálné fotky interiéru/ošetření
+- Doplnit ceník (pokud ho Hana poskytne)
+- Backend pro kontaktní formulář (Formspree nebo mailto:)
+- Případně: Google Maps embed v sekci kontakt
+- Před nasazením: smazat watermark (odstranit `<div id="demo-watermark">`)
